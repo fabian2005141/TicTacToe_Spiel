@@ -23,9 +23,11 @@ namespace Tic_Tac_Toe_Spiel
         // 1 = X || 2 = O
         static int Draw = 1;
         static int zug = 0;
+        static string dran;
+
         bool is_winner()
-       {
-            if ((B1.Content == B2.Content) && (B2.Content ==B3. Content) && B1.Content != "") { return true; }
+        {
+            if ((B1.Content == B2.Content) && (B2.Content == B3.Content) && B1.Content != "") { return true; }
             if ((B4.Content == B5.Content) && (B5.Content == B6.Content) && B5.Content != "") { return true; }
             if ((B7.Content == B8.Content) && (B8.Content == B9.Content) && B7.Content != "") { return true; }
 
@@ -37,7 +39,7 @@ namespace Tic_Tac_Toe_Spiel
             if ((B3.Content == B5.Content) && (B5.Content == B7.Content) && B3.Content != "") { return true; }
 
             return false;
-       }
+        }
 
 
         public MainWindow()
@@ -45,16 +47,33 @@ namespace Tic_Tac_Toe_Spiel
             InitializeComponent();
             Clear();
         }
+        public void New_game(object sender, RoutedEventArgs e)
+        {
+            Clear();
+            Draw = 1;
+            zug = 0;
+            dran = null;
+
+        }
+            
 
         public void ButtonClick(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
 
-            if (zug <= 9)
+            if (zug <= 9 || is_winner() == false)
             {
                 Console.WriteLine("Button Klick Alle Variablen:" + zug + Draw);
-                if(Draw == 1 && button.Content == "") { button.Content = "X"; zug++; Draw++; }else if(Draw == 2 && button.Content == "") { zug++; Draw--; button.Content = "O"; }
+                if(Draw == 1 && button.Content == "") { button.Content = "X"; dran = "X"; zug++; Draw++; }else if(Draw == 2 && button.Content == "") { zug++; dran = "O"; Draw--; button.Content = "O"; }
             }
+            
+            if(is_winner() == true)
+            {
+                Draw = 0;
+                if (dran == "O") { Debug.Content = "O is Winner"; }else 
+                    if(dran == "X") { Debug.Content = "X is Winner"; }
+
+            }else if (zug == 9) { Draw = 0; Debug.Content = "Unendschieden"; }
 
             
         }
@@ -71,6 +90,9 @@ namespace Tic_Tac_Toe_Spiel
             B9.Content = "";
         }
 
-        
+        private void Neu(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,8 @@
         <Button x:Name="B7" Content="B7" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Height="100" Width="100" Click="ButtonClick"/>
         <Button x:Name="B8" Content="B8" HorizontalAlignment="Left" Margin="120,230,0,0" VerticalAlignment="Top" Height="100" Width="100" Click="ButtonClick"/>
         <Button x:Name="B9" Content="B9" HorizontalAlignment="Left" Margin="230,230,0,0" VerticalAlignment="Top" Height="100" Width="100" Click="ButtonClick"/>
+        <Label x:Name="Debug" Content="Debug" HorizontalAlignment="Left" Margin="74,373,0,0" VerticalAlignment="Top" MouseDoubleClick="New_game"/>
+
 
     </Grid>
 </Window>
