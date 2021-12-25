@@ -24,5 +24,13 @@ namespace Tic_Tac_Toe_Spiel
         {
             InitializeComponent();
         }
+
+        public void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button button = new Button();
+            
+        }
+
+        
     }
 }
