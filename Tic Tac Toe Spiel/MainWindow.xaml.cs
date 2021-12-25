@@ -20,6 +20,13 @@ namespace Tic_Tac_Toe_Spiel
     /// </summary>
     public partial class MainWindow : Window
     {
+        static bool Is_winner()
+        {
+            return false;
+        }
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +34,11 @@ namespace Tic_Tac_Toe_Spiel
 
         public void ButtonClick(object sender, RoutedEventArgs e)
         {
-            Button button = new Button();
+            // Button button = ;
+            Button button = sender as Button;
+            
+            Console.WriteLine("Hi");
+            Console.ReadLine();
             
         }
 
