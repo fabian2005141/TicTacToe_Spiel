@@ -20,26 +20,55 @@ namespace Tic_Tac_Toe_Spiel
     /// </summary>
     public partial class MainWindow : Window
     {
-        static bool Is_winner()
-        {
-            return false;
-        }
+        // 1 = X || 2 = O
+        static int Draw = 1;
+        static int zug = 0;
+        bool is_winner()
+       {
+            if ((B1.Content == B2.Content) && (B2.Content ==B3. Content) && B1.Content != "") { return true; }
+            if ((B4.Content == B5.Content) && (B5.Content == B6.Content) && B5.Content != "") { return true; }
+            if ((B7.Content == B8.Content) && (B8.Content == B9.Content) && B7.Content != "") { return true; }
 
+            if ((B1.Content == B4.Content) && (B4.Content == B7.Content) && B1.Content != "") { return true; }
+            if ((B2.Content == B5.Content) && (B5.Content == B8.Content) && B2.Content != "") { return true; }
+            if ((B3.Content == B6.Content) && (B6.Content == B9.Content) && B3.Content != "") { return true; }
+
+            if ((B1.Content == B5.Content) && (B5.Content == B9.Content) && B1.Content != "") { return true; }
+            if ((B3.Content == B5.Content) && (B5.Content == B7.Content) && B3.Content != "") { return true; }
+
+            return false;
+       }
 
 
         public MainWindow()
         {
             InitializeComponent();
+            Clear();
         }
 
         public void ButtonClick(object sender, RoutedEventArgs e)
         {
-            // Button button = ;
             Button button = sender as Button;
+
+            if (zug <= 9)
+            {
+                Console.WriteLine("Button Klick Alle Variablen:" + zug + Draw);
+                if(Draw == 1 && button.Content == "") { button.Content = "X"; zug++; Draw++; }else if(Draw == 2 && button.Content == "") { zug++; Draw--; button.Content = "O"; }
+            }
+
             
-            Console.WriteLine("Hi");
-            Console.ReadLine();
-            
+        }
+        public void Clear()
+        {
+            B1.Content = "";
+            B2.Content = "";
+            B3.Content = "";
+            B4.Content = "";
+            B5.Content = "";
+            B6.Content = "";
+            B7.Content = "";
+            B8.Content = "";
+            B9.Content = "";
         }
 
         
