@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="264,149,0,0" VerticalAlignment="Top"/>
+        
+        <Button x:Name="B1" Content="B1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+        <Button x:Name="B2" Content="B2" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+        <Button x:Name="B3" Content="B3" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+
+        <Button x:Name="B4" Content="B4" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="100" Width="100" Click="ButtonClick"/>
+        <Button x:Name="B5" Content="B5" HorizontalAlignment="Left" Margin="120,120,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+        <Button x:Name="B6" Content="B6" HorizontalAlignment="Left" Margin="230,120,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+
+        <Button x:Name="B7" Content="B7" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+        <Button x:Name="B8" Content="B8" HorizontalAlignment="Left" Margin="120,230,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
+        <Button x:Name="B9" Content="B9" HorizontalAlignment="Left" Margin="230,230,0,0" VerticalAlignment="Top" Height="100" Width="100"/>
 
     </Grid>
 </Window>
