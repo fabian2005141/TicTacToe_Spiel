@@ -5,6 +5,11 @@
       "ProjectGuid": "08e08ad9-b2d8-4543-94c9-c3df322932ec",
       "DisplayName": "Tic Tac Toe Spiel",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Sonstige Dateien",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

@@ -25,7 +25,7 @@ namespace Tic_Tac_Toe_Spiel
         static int zug = 0;
         static string dran;
         public bool debugmode = false;
-
+        static int click = 0;
         bool is_winner()
         {
             if ((B1.Content == B2.Content) && (B2.Content == B3.Content) && B1.Content != "") { return true; }
@@ -64,6 +64,7 @@ namespace Tic_Tac_Toe_Spiel
 
             if (zug <= 9 || is_winner() == false)
             {
+                
                 Console.WriteLine("Button Klick Alle Variablen:" + zug + Draw);
                 if(Draw == 1 && button.Content == "") { button.Content = "X"; dran = "X"; zug++; Draw++; }else if(Draw == 2 && button.Content == "") { zug++; dran = "O"; Draw--; button.Content = "O"; }
             }
@@ -95,16 +96,18 @@ namespace Tic_Tac_Toe_Spiel
 
         private void Dubug_Mode(object sender, RoutedEventArgs e)
         {
-            var click = 0;
+            
 
             if (click == 0) {
                 DebugBox.Visibility = Visibility.Visible;
                 debugmode = true;
-                click++;
-            }else
-            {
+                click = 1;
+            }else if(click == 1) {
+            
                 DebugBox.Visibility = Visibility.Hidden;
                 debugmode = false;
+                click = 0;
+
             }
 
 
