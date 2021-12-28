@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+
 
 namespace Tic_Tac_Toe_Spiel
 {
@@ -70,13 +72,13 @@ namespace Tic_Tac_Toe_Spiel
                 if(Draw == 1 && button.Content == "") { button.Content = "X"; dran = "X"; zug++; Draw++; }else if(Draw == 2 && button.Content == "") { zug++; dran = "O"; Draw--; button.Content = "O"; }
             }
             
-            if(is_winner() == true)
-            {
-                Draw = 0;
-                if (dran == "O") { Debug.Content = "O is Winner"; }else 
-                    if(dran == "X") { Debug.Content = "X is Winner"; }
+            //if(is_winner() == true)
+            //{
+              //  Draw = 0;
+              //  if (dran == "O") { Debug.Content = "O is Winner"; }else 
+               //     if(dran == "X") { Debug.Content = "X is Winner"; }
 
-            }else if (zug == 9) { Draw = 0; Debug.Content = "Unendschieden"; }
+           // }else if (zug == 9) { Draw = 0; Debug.Content = "Unendschieden"; }
 
             
         }
@@ -91,11 +93,19 @@ namespace Tic_Tac_Toe_Spiel
             B7.Content = "";
             B8.Content = "";
             B9.Content = "";
-            Debug.Content = "--Debug--";
-            
         }
 
+        public void Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
         
+        public void Debug(object sender, RoutedEventArgs e)
+        {
+            //KIData Data = new KIData();
+            KIData Dat = new KIData();
+            Dat.reader();
+        }
 
         
         
