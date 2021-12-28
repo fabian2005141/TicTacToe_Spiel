@@ -25,7 +25,7 @@ namespace Tic_Tac_Toe_Spiel
         static int zug = 0;
         static string dran;
         public bool debugmode = false;
-        static int click = 0;
+        
         bool is_winner()
         {
             if ((B1.Content == B2.Content) && (B2.Content == B3.Content) && B1.Content != "") { return true; }
@@ -47,7 +47,8 @@ namespace Tic_Tac_Toe_Spiel
         {
             InitializeComponent();
             Clear();
-        }
+            
+    }
         public void New_game(object sender, RoutedEventArgs e)
         {
             Clear();
@@ -91,27 +92,12 @@ namespace Tic_Tac_Toe_Spiel
             B8.Content = "";
             B9.Content = "";
             Debug.Content = "--Debug--";
-            if (debugmode == false) { DebugBox.Visibility = Visibility.Hidden; }
-        }
-
-        private void Dubug_Mode(object sender, RoutedEventArgs e)
-        {
-            
-
-            if (click == 0) {
-                DebugBox.Visibility = Visibility.Visible;
-                debugmode = true;
-                click = 1;
-            }else if(click == 1) {
-            
-                DebugBox.Visibility = Visibility.Hidden;
-                debugmode = false;
-                click = 0;
-
-            }
-
-
             
         }
+
+        
+
+        
+        
     }
 }
