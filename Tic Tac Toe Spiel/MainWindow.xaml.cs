@@ -106,21 +106,11 @@ namespace Tic_Tac_Toe_Spiel
         public void Debug(object sender, RoutedEventArgs e)
         {
             //KIData Data = new KIData();
-            //KIData Dat = new KIData();
+            KIData Dat = new KIData();
+            Dat.Ki_Main_System("1,2,3,4,5,6,7,8,9");
             //Dat.reader();
 
-            B1.Content = "Hu";
-            B2.Content = "Ren";
-            B3.Content = "-----";
-            B4.Content = "Sohn";
-            B5.Content = "!!";
-            B6.Content = "------";
-            B7.Content = "Ich Binn";
-            B8.Content = "Der Beste ";
-            B9.Content = "!!!";
-
-
-
+           
 
 
 
