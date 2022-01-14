@@ -105,17 +105,38 @@ namespace Tic_Tac_Toe_Spiel
         
         public void Debug(object sender, RoutedEventArgs e)
         {
+
+
             //KIData Data = new KIData();
-            KIData Dat = new KIData();
-            Dat.Ki_Main_System("1,2,3,4,5,6,7,8,9");
-            //Dat.reader();
+            KIData Ki_Data = new KIData();
+            //Dat.Ki_Main_System();
+            //Ki_Data.Writer();
+            Ki_Data.reader();
 
            
 
 
-
         }
 
+
+        public void Ki_manege()
+        {
+            return;
+        }
+
+
+        public void KI_Set(int Feld)
+        {
+            if (is_winner() == false)
+            {
+
+            }
+            else
+            {
+                return;
+            }
+
+        }
         
         
     }
