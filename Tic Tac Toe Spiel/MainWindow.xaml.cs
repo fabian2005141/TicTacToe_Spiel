@@ -17,7 +17,8 @@ namespace Tic_Tac_Toe_Spiel
         static int zug = 0;
         static string dran;
         public bool debugmode = false;
-        static string path = @"H:\Dokumente\GitHub\TicTacToe_Spiel\Tic Tac Toe Spiel\Ki_Folder\KiData.dat";
+        static string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TikTakToe_data/Kilearn.dat");
+        static string path_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TikTakToe_data");
 
         bool is_winner()
         {
@@ -35,10 +36,11 @@ namespace Tic_Tac_Toe_Spiel
             return false;
         }
 
-
+        //Basisspiel (multiplayer ohne KI)
         public MainWindow()
         {
             InitializeComponent();
+            IfFile();
             Clear();
 
         }
@@ -74,6 +76,7 @@ namespace Tic_Tac_Toe_Spiel
 
 
         }
+
         public void Clear()
         {
             B1.Content = "";
@@ -92,11 +95,15 @@ namespace Tic_Tac_Toe_Spiel
 
         }
 
+        //Exit Button
         public void Exit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+
+
+        //Debug function
         public void Debug(object sender, RoutedEventArgs e)
         {
 
@@ -107,19 +114,22 @@ namespace Tic_Tac_Toe_Spiel
             //Ki_Data.Writer();
             //Ki_Data.reader();
             updater();
-
+           
 
 
 
         }
 
 
+
+        // Ki integration
         public void Ki_manege()
         {
             return;
         }
 
 
+        // funktion für die KI um zu setzen
         public void KI_Set(int Feld, string content)
         {
             if (is_winner() == false)
@@ -142,16 +152,15 @@ namespace Tic_Tac_Toe_Spiel
             {
                 return;
             }
-
         }
 
-        public string pt;
-        public string xx;
+        
 
         public void updater()
         {
-           pt = "";
-
+            string pt = "";
+            string xx;
+            
             Dictionary<int, Button> Button_dict_ki = new Dictionary<int, Button>();
             Button_dict_ki.Add(1, B1);
             Button_dict_ki.Add(2, B2);
@@ -187,21 +196,29 @@ namespace Tic_Tac_Toe_Spiel
                     Environment.Exit(0);
                 }
 
-                pt += xx + ",";
-                File.WriteAllText(path, pt);
-                KIData kidata = new KIData();
-                kidata.reader();
-                Console.WriteLine(pt);
-
-
+                 //pt += xx + ",";
+                 KIData kidata = new KIData();
+                 kidata.reader();
+                 Console.WriteLine(pt);
 
             }
+
             //Console.WriteLine(pt.Length);
             pt = pt.Substring(0, pt.Length - 1);
-            
-
+            File.WriteAllText(path, pt);
             Console.WriteLine(pt);
 
+        }
+
+
+        //schaut ob der path existiert und erstellt wenn nötig Dateien
+        static void IfFile()
+        {
+            if (!File.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path_dir);
+                File.WriteAllText(path, "");
+            }
         }
 
 
